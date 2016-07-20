@@ -11,4 +11,12 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
+
+    protected $json;
+    protected $data = [];
+
+    public function __construct()
+    {
+        $this->json = \App::make( 'Daboia\Handlers\Response\JsonResponse' );
+    }
 }
